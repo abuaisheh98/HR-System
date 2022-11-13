@@ -8,14 +8,18 @@ class SingletonCSVFile
   include Singleton
 
   def header
-    CSV.open("Employee_Information.csv", "wb") do |csv|
-      csv << ["type", "id", "First Name", "Last Name", "Age", "Address", "Salary"]
+    CSV.open('Employee_Information.csv', 'wb') do |csv|
+      csv << ['type', 'id', 'First Name', 'Last Name', 'Age', 'Address', 'Salary']
     end
   end
 
-  def save(object)
-    CSV.open("Employee_Information.csv", "ab") do |csv|
-      csv << getData(object)
+  def save(objects)
+    count = 0
+    CSV.open('Employee_Information.csv', 'ab') do |csv|
+      while count < objects.length
+        csv << getData(objects[count])
+        count += 1
+      end
     end
   end
 

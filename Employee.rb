@@ -10,6 +10,14 @@ class Employee
     @salary = salary
   end
 
+  def benefit
+    raise 'Description method is not available ... !'
+  end
+
+  def description
+    raise 'Description method is not available ... !'
+  end
+
   def employee_info
     [id, first_name, last_name, age, address, salary]
   end
